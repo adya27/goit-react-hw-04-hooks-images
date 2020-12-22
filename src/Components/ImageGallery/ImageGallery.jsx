@@ -1,30 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
 
-class ImageGallery extends Component {
+function ImageGallery({ onClick, match }) {
   //   console.log(match);
-  onClick = (data) => {
-    this.props.onClick(data);
+  const onClickIMG = (data) => {
+    onClick(data);
   };
 
-  render() {
-    const { match } = this.props;
-    return (
-      <ul className="ImageGallery">
-        {match.map((image) => {
-          return (
-            <ImageGalleryItem
-              key={image.id}
-              webformatURL={image.webformatURL}
-              largeImageURL={image.largeImageURL}
-              onClick={this.onClick}
-            />
-          );
-        })}
-      </ul>
-    );
-  }
+  return (
+    <ul className="ImageGallery">
+      {match.map((image) => {
+        return (
+          <ImageGalleryItem
+            key={image.id}
+            webformatURL={image.webformatURL}
+            largeImageURL={image.largeImageURL}
+            onClick={onClickIMG}
+          />
+        );
+      })}
+    </ul>
+  );
 }
 
 export default ImageGallery;
