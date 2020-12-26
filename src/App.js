@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     if (search !== "") {
-      console.log("useEffect 1");
+      // console.log("useEffect 1");
       fetch(
         `https://pixabay.com/api/?key=17537629-2ee3a1e1cfb1c48a1e1039472&q=${search}&image_type=photo&pretty=true&page=${page}&per_page=12`
       )
